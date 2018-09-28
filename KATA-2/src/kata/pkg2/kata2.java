@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class kata2 {
     private final Random rand = new Random(System.currentTimeMillis());
     private Histogram histo;
-    private final Integer [] data = new Integer[15];
+    private final String [] data = {"Rosa", "Pepe", "Maria", "Pepe", "Pepe", "Rosa"};
     
     public static void main(String[] args) {
         kata2 i = new kata2();
@@ -17,15 +17,8 @@ public class kata2 {
     }
     
     public void control (){
-        chargingArray();
         chargingHash();
         showingContent();
-    }
-    
-    public void  chargingArray(){
-        for(int i= 0; i < data.length; i++){
-            data[i] = ThreadLocalRandom.current().nextInt(-10, 11);
-        }
     }
     
     public void chargingHash(){
@@ -34,7 +27,7 @@ public class kata2 {
     
     public void showingContent(){        
         System.out.println("-Array-");
-        for (int i : data) {
+        for (String i : data) {
             System.out.print(i + " ");
         }
         
