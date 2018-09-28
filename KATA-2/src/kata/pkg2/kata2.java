@@ -1,6 +1,5 @@
 package kata.pkg2;
 
-import com.sun.prism.impl.PrismSettings;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -9,7 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class kata2 {
     private final Random rand = new Random(System.currentTimeMillis());
-    private Map <Integer, Integer> histogram = new HashMap<>();
+    private Histogram histo;
     private final int[] data = new int[15];
     
     public static void main(String[] args) {
@@ -30,9 +29,7 @@ public class kata2 {
     }
     
     public void chargingHash(){
-        for (int i : data) {
-            histogram.put(i, histogram.containsKey(i) ? histogram.get(i) + 1: 1);
-        }
+        histo = new Histogram(data);
     }
     
     public void showingContent(){        
@@ -42,9 +39,10 @@ public class kata2 {
         }
         
         System.out.println("\n-Histogram-");
-        Iterator it = histogram.entrySet().iterator();
+        Map<Integer,Integer> histogr = histo.getHistogram();
+        Iterator it = histogr.entrySet().iterator();
         
-        for(Map.Entry<Integer,Integer> entry: histogram.entrySet()){
+        for(Map.Entry<Integer,Integer> entry: histogr.entrySet()){
             System.out.println(entry.getKey() + " => " + entry.getValue());
         }
     }
