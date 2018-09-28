@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class kata2 {
     private final Random rand = new Random(System.currentTimeMillis());
     private Histogram histo;
-    private final int[] data = new int[15];
+    private final Integer [] data = new Integer[15];
     
     public static void main(String[] args) {
         kata2 i = new kata2();
